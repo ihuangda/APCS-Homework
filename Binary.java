@@ -29,13 +29,20 @@ public class Binary implements Comparable {
     }
 
     /*=====================================
-      get _decNum because it is a private varible
+      get _decNum because it is a private variable
       =====================================*/
     public int getdec() {
 	return _decNum;
     }
 
-    /*=====================================
+    /*====================================
+      get _binNum because it is a private variable
+      ===================================*/
+    public String getbin(){
+	return _binNum;
+    }
+
+   /*=====================================
       String toString() -- returns String representation of this Object
       pre:  n/a
       post: returns String of 1's and 0's representing value of this Object
@@ -94,10 +101,10 @@ public class Binary implements Comparable {
       Object), or if this and other represent equal binary values
       =============================================*/
     public boolean equals( Object other ) { 
-	return ((this == other) || (this._binNum.equals(((Binary)other)._binNum))); // note: use .equals because we are comparing strings (_binNum)
-	//typecasting because var type of Object is object and an Object does not have _binNum
-    }// end equals 
-
+	return( other instanceof Binary && _binNum.equals(((Binary)other).getbin()));
+    // NOTE: USE .EQUALS BECAUSE WE ARE COMPARING STRINGS (_binNum)
+	//TYPECASTING BECAUSE VAR TYPE OF OBJECT IS OBJECT AND AN OBJECT DOES NOT HAVE _binNum
+    }// END EQUALS 
 
     /*=============================================
       int compareTo(Object) -- tells which of two Binary objects is greater
