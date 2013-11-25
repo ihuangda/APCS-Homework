@@ -31,6 +31,10 @@ public class Hexadecimal implements Comparable {
     }
 
 
+    public String gethex(){
+	return _hexNum;
+    }
+
     /*=====================================
       String toString() -- returns String representation of this Object
       pre:  n/a
@@ -101,11 +105,8 @@ public class Hexadecimal implements Comparable {
             Object), or if this and other represent equal binary values
       =============================================*/
     public boolean equals( Object other ) { 
-	Hexadecimal temp = (Hexadecimal) other;
-	return ((this == other) || (this._hexNum.equals(temp._hexNum)));
-    }
-
-
+	return (other instanceof Hexadecimal &&  _hexNum.equals(((Hexadecimal)other).gethex()));
+}
     /*=============================================
       int compareTo(Object) -- tells which of two Hexadecimal objects is greater
       pre:  other is instance of class Hexadecimal
