@@ -256,7 +256,7 @@ public class Searching {
 	printArray( cArr ); //should show array of nulls
 
 	//initialize Comparable array- slot 0 is int, slot 1 is a String, slot 2 is Binary, slot 3 is Hexadecimal
-	cArr[0] = 3;
+	cArr[0] = 3; //autoboxing
 	cArr[1] = "imagination";	
 	cArr[2] = new Binary( (int)(100 * Math.random()) );
 	cArr[3] = new Hexadecimal ((int) (100*Math.random()) );
