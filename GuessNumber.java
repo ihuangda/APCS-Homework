@@ -3,6 +3,34 @@
 // HW32
 // 2013-11-25
 
+/*==================================================
+  class GuessNumber -- fun fun fun!
+
+  eg, sample interaction with end user:
+  Guess a # fr 1-100: 50
+  Too high
+  Guess a # fr 1-49: 25
+  Too low
+  Guess a # fr 26-49: 38
+  Correct! It took 3 guesses
+  ==================================================*/
+
+/*==================================================
+  the Breakdown:
+  The fastest way to guess a random number is to reduce the range by half with each guess. 
+  The ranging keeps getting divided by two until you reach a range where there is not value between the _lo and _hi. 
+  This turns into an equation of when 2^x will surpass the n, given that n is _hi of the original range. 
+  Once 2^x > n, then this means that it's either of the endpoints values and you've already guessed one of them. 
+  Maximum it will take you an x + 1 guesses if you guess the wrong one at first. 
+
+  What is the max # of guesses if num is b/t 1&100? 8
+  What is the max # go guesses if num is b/t 1&200? 9 
+  What is the max # of guesses if num is b/t 1&400? 10
+  What is the max # of guesses if num is b/t 1&1000? 11
+  What is the max # of guesses if num is b/t 1&n? (x + 1) provided that 2^x > n
+
+  ==================================================*/
+
 // Need to import the Keyboard functions to be used later 
 import cs1.Keyboard; 
 
