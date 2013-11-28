@@ -116,6 +116,9 @@ public class Rational implements Comparable { //<Rational> can type parameter : 
     */    
     public int compareTo(Object temp ) {
 	
+	if (! (temp instanceof Rational))
+	    throw new ClassCastException("\n input not Rational");
+
         Rational other = (Rational) temp; //typecast Object temp to a Rational object (subclass) which allows it to use its methods and variables
         int thisNumerator, otherNumerator;
 
