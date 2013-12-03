@@ -16,8 +16,8 @@ public class BinSearch2 {
       ==================================================*/
     public static int binSearch ( Comparable[] a, Comparable target ) {
         //uncomment exactly 1 of the 2 stmts below:
-	// return binSearchIter( a, target, 0, a.length-1 );
-        return binSearchRec( a, target, 0, a.length-1 );
+	return binSearchIter( a, target, 0, a.length-1 );
+	// return binSearchRec( a, target, 0, a.length-1 );
     }
 
     /*==================================================
@@ -29,7 +29,7 @@ public class BinSearch2 {
       max number of guesses necessary ceiling(log2n) where n is hi
       ==================================================*/
     public static int binSearchRec( Comparable[] a, Comparable target, int lo, int hi ) {
-	if (isSorted(a)){
+	//	if (isSorted(a)){
 		int mid = (lo + hi)/2; // init mid pos var
 	
 		if (lo > hi) {return -1;} // exit case: If lo & hi have crossed, target is not present
@@ -47,12 +47,12 @@ public class BinSearch2 {
 		else if ( a[mid].compareTo(target) < 0) {
 		    return binSearchRec (a, target, mid + 1, hi);
 		}
-	    }
+		//	    }
         return -1; //if not sorted return -1, bad array
     }
 
     public static int binSearchIter( Comparable[] a, Comparable target, int lo, int hi ) {
-	if (isSorted(a)){
+	//	if (isSorted(a)){
 	    while (lo <= hi) {
 		int m = (lo + hi)/2; // update mid pos var
 		if ((a[m].compareTo(target)) == 0){ // target found
@@ -61,7 +61,7 @@ public class BinSearch2 {
 		else if ((a[m].compareTo(target)) > 0) hi = m - 1; //value at mid index is higher than target
 		else if ((a[m].compareTo(target)) < 0) lo = m + 1; // value at mid index if lower than target
 	    }
-	}
+	    //	}
 	return -1;
     }
 
@@ -178,14 +178,14 @@ public class BinSearch2 {
        
 	//Initialize Binary array 
 	for (int i = 0; i < bArr.length; i++){
-	bArr[i]= new Binary (i + 1);
+	bArr[i]= new Binary (i);
 	}
 	System.out.println("current bArr: ");
 	printArray( bArr );
 	System.out.println("is bArr sorted? " + isSorted(bArr)); //true
 
 	//search for 101 in array 
-        System.out.println("Searching for 101... " + binSearch(bArr, new Binary(3)));
+        System.out.println("Searching for 101... " + binSearch(bArr, new Binary(5)));
 
         //search for 100000000 in array 
         System.out.println("Searching for 100000000... " + binSearch(bArr, new Binary(256)));
