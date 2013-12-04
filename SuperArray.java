@@ -1,7 +1,7 @@
 // Ida Huang
 // Period 8
-// HW37
-// 2013-12-03
+// HW38
+// 2013-12-04
 
 /*==================================================
   class SuperArray version 2.0
@@ -14,7 +14,7 @@
   removing an element at specified index
   ==================================================*/
 
-public class SuperArray {
+public class SuperArray implements ListInt {
 
     private int[] _data;
     private int _lastPos; // the position value of the last meaningful element
@@ -64,7 +64,7 @@ public class SuperArray {
     }
 
     //adds an item after the last item
-    public void add( int newVal ) {
+    public boolean add( int newVal ) {
 	// int[] _ndata = new int[ _data.length + 1];
 	// for (int i = 0; i < _data.length; i++) {
 	//     _ndata[i] = _data[i];
@@ -78,6 +78,7 @@ public class SuperArray {
 	_data[ _lastPos + 1 ] = newVal; 
 	_lastPos++; //update _lastPos value because the index of the last meaningful element increased by 1
 	_size++;//update _size because there is now 1 more meaningful element
+	return true;
 	    
     }
 
@@ -87,6 +88,7 @@ public class SuperArray {
      */
     public void add( int index, int newVal ) {
 	if (index <= _data.length - 1 && index >= 0) {//only insert if the index is in the range of [0, _data.length -1]
+	    
 	    if (_data.length - 1 == _lastPos) {//if no space to insert, then expand
 		expand();
 	    }
@@ -102,8 +104,10 @@ public class SuperArray {
 
     //removes the item at index
     //shifts elements left to fill in newly-empted slot
-    public void remove( int index ) {
+    public int remove( int index ) {
+	int ans = -1;
 	if (index < _data.length) {
+	    ans = _data[index];
 	    for (int i = index; i <= _lastPos; i++){ 
 		_data[i] = _data[i + 1]; //move them one over to left
 	        if (i == _lastPos){
@@ -113,6 +117,7 @@ public class SuperArray {
 	    _lastPos--;
 	    _size--;
 	}
+	return ans;
     }
 
 
